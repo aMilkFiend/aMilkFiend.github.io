@@ -5,12 +5,84 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lacquer">
     <style>
-      h1 {
-        font-family: 'Lacquer', serif;
+            body {
+        background-color: #1e1e1e;
+        color: white;
       }
+      .wrapper {
+        margin: auto;
+        max-width: 300px;
+      }
+      h1, h2 {
+        font-family: 'Lacquer', serif;
+        text-align: center;
+        color:red;
+      }
+      .board {
+        margin: auto;
+        max-width: 296px;
+      }
+      .vertical-border {
+        border-right: 5px solid #362102;
+        border-left: 5px solid #362102;
+        width: 260px;
+        margin: 10px auto 10px auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .horizontal-border {
+        position: relative;
+        border-top: 5px solid #442B05;
+        border-bottom: 5px solid #442B05;
+        margin: auto -10px auto -10px;
+      }
+      .board-inner {
+        position: relative;
+        background: black;
+        margin: -20px 10px -20px 10px;
+      }
+      
     </style>
   </head>
   <body>
-    <h1> It's dark in here.</h1>
+    <div class="wrapper">
+      <h1>Final Girl: Movie Marathon Mode</h1>
+      <div class="board">
+        <div class="vertical-border">
+          <div class="horizontal-border">
+            <div class="board-inner">
+              <h2>Final Girls</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="vertical-border">
+          <div class="horizontal-border">
+            <div class="board-inner">
+              <h2>Killers</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="vertical-border">
+          <div class="horizontal-border">
+            <div class="board-inner">
+              <h2>Locations</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="vertical-border">
+          <div class="horizontal-border">
+            <div class="board-inner">
+              <h2>Other Options</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
