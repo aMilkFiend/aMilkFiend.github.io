@@ -50,6 +50,32 @@
      li {
        padding-bottom: 10px;
      }
+     input[type="checkbox"] {
+       -webkit-appearance: initial;
+       appearance: initial;
+       background: black;
+       width: 15px;
+       height: 15px;
+       border: 1px solid white;
+       position: relative;
+       border-radius: 3px;
+     }
+     input[type="checkbox"]:checked {
+       background: black;
+     }
+     input[type="checkbox"]:checked:after {
+       font-family: 'Lacquer', serif;
+       content: "X";
+       color: red;
+       font-size: 40px;
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       -webkit-transform: translate(-50%,-50%);
+       -moz-transform: translate(-50%,-50%);
+       -ms-transform: translate(-50%,-50%);
+       transform: translate(-50%,-50%);
+     }
     </style>
   </head>
   <body>
