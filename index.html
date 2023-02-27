@@ -4,8 +4,8 @@
     <title>WooHoo Milk!</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lacquer">
-    <style>
-      body {
+	<style>
+	body {
         background-color: #1e1e1e;
         color: white;
         font-family: 'Helvetica', sans-serif;
@@ -55,150 +55,155 @@
         background: black;
         margin: -20px 20px 0px 20px;
       }
-      .single-column {
-        margin-bottom: 20px;
-      }
-      ul {
-        list-style-type: none;
-      }
-      ul.two-column {
-        columns: 2;
-      }
-      li {
-        padding-bottom: 10px;
-      }
-      input[type="checkbox"] {
-        -webkit-appearance: initial;
-        appearance: initial;
-        background: black;
-        width: 15px;
-        height: 15px;
-        border: 1px solid white;
-        position: relative;
-        border-radius: 3px;
-      }
-      input[type="checkbox"]:checked {
-        background: black;
-      }
-      input[type="checkbox"]:checked:after {
-        font-family: 'Lacquer', serif;
-        content: "X";
-        color: red;
-        font-size: 40px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%,-50%);
-        -moz-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
-      }
-      .submit {
-        text-align: center;
-      }
-      table {
-        margin:auto;
-        border-collapse: collapse;
-      }
-      tr {
-        border: 1px solid white;
-      }
-      td {
-        padding: 2px 6px 2px 6px;
-      }
-      .error {
-        color: red;
-      }
-      .killer {
-        color: red;
-      }
-      .location {
-        color: cyan;
-      }
-      .girl {
-        color: lightgreen;
-      }
+     .single-column {
+       margin-bottom: 20px;
+     }
+     ul {
+       list-style-type: none;
+     }
+     ul.two-column {
+       columns: 2;
+     }
+     li {
+       padding-bottom: 10px;
+     }
+     input[type="checkbox"] {
+       -webkit-appearance: initial;
+       appearance: initial;
+       background: black;
+       width: 15px;
+       height: 15px;
+       border: 1px solid white;
+       position: relative;
+       border-radius: 3px;
+     }
+     input[type="checkbox"]:checked {
+       background: black;
+     }
+     input[type="checkbox"]:checked:after {
+       font-family: 'Lacquer', serif;
+       content: "X";
+       color: red;
+       font-size: 40px;
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       -webkit-transform: translate(-50%,-50%);
+       -moz-transform: translate(-50%,-50%);
+       -ms-transform: translate(-50%,-50%);
+       transform: translate(-50%,-50%);
+     }
+     .submit {
+       text-align: center;
+     }
+     table {
+       margin:auto;
+       border-collapse: collapse;
+     }
+     tr {
+       border: 1px solid white;
+     }
+     td {
+       padding: 2px 6px 2px 6px;
+     }
+     .error {
+       color: red;
+     }
+     .killer {
+       color: red;
+     }
+     .location {
+       color: cyan;
+     }
+     .girl {
+       color: lightgreen;
+     }
+     
+     
+     /*.output > * {
+       display: none;
+     }*/
 	</style>
 	<script>
-  function formSubmit() {
-	  var resultTable = document.getElementById("results");
-    //clear results
-    var child = resultTable.lastElementChild;
-    while (child) {
-      resultTable.removeChild(child);
-      child = resultTable.lastElementChild;
-    }
-    //get form results
-    //options
-    var numMovies = document.getElementById("movies").value;
-    //final girls
-    var girlsList = [];
-    var girlsBoxes = document.getElementsByName("girls");
-    for(var i=0; girlsBoxes[i]; i++){
-      if(girlsBoxes[i].checked){
-        girlsList.push(girlsBoxes[i].value);
-      }
-    }
-    //killers
-    var killerList = [];
-    var killerBoxes = document.getElementsByName("killers");
-    for(var i=0; killerBoxes[i]; i++){
-      if(killerBoxes[i].checked){
-        killerList.push(killerBoxes[i].value);
-      }
-    }
-    //locations
-    var locationList = [];
-    var locationBoxes = document.getElementsByName("locations");
-    for(var i=0; locationBoxes[i]; i++){
-      if(locationBoxes[i].checked){
-        locationList.push(locationBoxes[i].value);
-      }
-    }
-    // option validation
-    var err = [];
-  
-    if(!numMovies){
-      //remind them to choose a length
-      err.push("Please choose the number of movies you'd like to play.")
-    } else {
-      //check they have enough selecions
-      if(girlsList.length < numMovies){
-        err.push("Please select at least " + (numMovies - girlsList.length) + " more girls.")
-      }
-      if(killerList.length < numMovies){
-        err.push("Please select at least " + (numMovies - killerList.length) + " more killers.")
-      }
-      if(locationList.length < numMovies) {
-        err.push("Please select at least " + (numMovies - locationList.length) + " more locations.")
-      }
-    }
-    //display errors
-    if(err.length > 0){
-      for(var i = 0; err[i]; i++){
-        var row = resultTable.insertRow(-1);
-        var cell = row.insertCell(0);
-        cell.classList.add("error");
-        cell.innerHTML = err[i];
-      }
-    } else {
-    //display results
-      for(var i = 0; i < numMovies; i++){
-        //selections
-        var girlId = girlsList.length * Math.random() | 0;
-        var killerId = killerList.length * Math.random() | 0;
-        var locationId = locationList.length * Math.random() | 0;
-        // add result
-        var row = resultTable.insertRow(-1);
-        var cell = row.insertCell(0);
-        cell.innerHTML = "<span class='killer'>" + killerList[killerId] +"</span> at <span class='location'>" + locationList[locationId] + "</span>, starring <span class='girl'>" + girlsList[girlId] + "</span>"
-        //splice selections
-        girlsList.splice(girlId,1);
-        killerList.splice(killerId,1);
-        locationList.splice(locationId,1);      
-      }
+	function formSubmit() {
+	var resultTable = document.getElementById("results");
+  //clear results
+  var child = resultTable.lastElementChild;
+  while (child) {
+  	resultTable.removeChild(child);
+    child = resultTable.lastElementChild;
+  }
+  //get form results
+  //options
+  var numMovies = document.getElementById("movies").value;
+  //final girls
+  var girlsList = [];
+  var girlsBoxes = document.getElementsByName("girls");
+  for(var i=0; girlsBoxes[i]; i++){
+  	if(girlsBoxes[i].checked){
+    	girlsList.push(girlsBoxes[i].value);
     }
   }
+  //killers
+  var killerList = [];
+  var killerBoxes = document.getElementsByName("killers");
+  for(var i=0; killerBoxes[i]; i++){
+  	if(killerBoxes[i].checked){
+    	killerList.push(killerBoxes[i].value);
+    }
+  }
+  //locations
+  var locationList = [];
+  var locationBoxes = document.getElementsByName("locations");
+  for(var i=0; locationBoxes[i]; i++){
+  	if(locationBoxes[i].checked){
+    	locationList.push(locationBoxes[i].value);
+    }
+  }
+  // option validation
+  var err = [];
+  
+  if(!numMovies){
+  	//remind them to choose a length
+  	err.push("Please choose the number of movies you'd like to play.")
+  } else {
+  	//check they have enough selecions
+    if(girlsList.length < numMovies){
+      err.push("Please select at least " + (numMovies - girlsList.length) + " more girls.")
+    }
+    if(killerList.length < numMovies){
+    	err.push("Please select at least " + (numMovies - killerList.length) + " more killers.")
+    }
+    if(locationList.length < numMovies) {
+    	err.push("Please select at least " + (numMovies - locationList.length) + " more locations.")
+    }
+  }
+  //display errors
+  if(err.length > 0){
+  	for(var i = 0; err[i]; i++){
+    	var row = resultTable.insertRow(-1);
+      var cell = row.insertCell(0);
+      cell.classList.add("error");
+      cell.innerHTML = err[i];
+    }
+  } else {
+  //display results
+  	for(var i = 0; i < numMovies; i++){
+    	//selections
+    	var girlId = girlsList.length * Math.random() | 0;
+    	var killerId = killerList.length * Math.random() | 0;
+      var locationId = locationList.length * Math.random() | 0;
+      // add result
+      var row = resultTable.insertRow(-1);
+      var cell = row.insertCell(0);
+      cell.innerHTML = "<span class='killer'>" + killerList[killerId] +"</span> at <span class='location'>" + locationList[locationId] + "</span>, starring <span class='girl'>" + girlsList[girlId] + "</span>"
+      //splice selections
+      girlsList.splice(girlId,1);
+      killerList.splice(killerId,1);
+      locationList.splice(locationId,1);      
+    }
+  }
+}
 	</script>
   </head>
   <body>
