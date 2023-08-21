@@ -66,6 +66,7 @@ function makeGirls() {
         input.type = 'checkbox';
         input.id = 'girl' + i;
         input.name = 'girls';
+        input.class = 'girls_cb';
         input.value = Final_Girls[i];
         
         lable.for = 'girl' + i;
@@ -89,6 +90,7 @@ function makeKillers() {
         input.type = 'checkbox';
         input.id = 'killer' + i;
         input.name = 'killers';
+        input.class = 'killers_cb';
         input.value = Killers[i];
         
         lable.for = 'killer' + i;
@@ -112,6 +114,7 @@ function makeLocations() {
         input.type = 'checkbox';
         input.id = 'location' + i;
         input.name = 'locations';
+        input.class = 'locations_cb';
         input.value = Locations[i];
         
         lable.for = 'location' + i;
