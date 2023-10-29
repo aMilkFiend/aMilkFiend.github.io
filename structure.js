@@ -1,58 +1,114 @@
-var Killers=[
-    "Hans",
-    "The Poltergeist",
-    "Inkanyamba",
-    "Gappetto",
-    "Dr. Fright",
-    "The Xenomorph",
-    "The Organism",
-    "The Intruders",
-    "Big Bad Wolf",
-    "Ratchet Lady"
-    ];
-    
-var Locations=[
-    "Camp Happy Trails",
-    "Creech Manor",
-    "Sacred Groves",
-    "Carnival of Blood",
-    "Maple Lane",
-    "USS Konrad",
-    "Station 2891",
-    "Wingard Cottage",
-    "Storybook Woods",
-    "Wolfe Asylum"
-    ];
-    
-var Final_Girls=[
-    "Laurie",
-    "Asami",
-    "Reiko",
-    "Marie",
-    "Alice",
-    "Sheila",
-    "Selena", 
-    "Nancy",
-    "Adelaide",
-    "Barbara",
-    "Paula",
-    "Ava",
-    "Ginny",
-    "Agnes",
-    "Contance",
-    "Julia",
-    "Layla",
-    "Jeanette",
-    "Ellen",
-    "Kate",
-    "Uki",
-    "Red",
-    "Gretel",
-    "Heather",
-    "Veronica",
-    "Ginny",
-    "Ava"
-    ];
+// Actual Series Data
+const s1 = {
+    "name": "Series 1",
+    "feature_films": {
+        "The Happy Trails Horror": {
+            "killer": "Hans the Butcher",
+            "location": "Camp Happy Trails",
+            "girls": ["Laurie", "Reiko"]
+        },
+        "Frightmare on Maple Lane": {
+            "killer": "Dr. Fright",
+            "location": "Maple Lane",
+            "girls": ["Nancy", "Sheila"]
+        },
+        "The Haunting of Creech Manor": {
+            "killer": "The Poltergeist",
+            "location": "Creech Manor",
+            "girls": ["Alice", "Selena"]
+        },
+        "Slaughter at the Groves": {
+            "killer": "Inkanyamba the Avenger",
+            "location": "Sacred Groves",
+            "girls": ["Adelaide", "Barbara"]
+        },
+        "Carnage at the Carnival": {
+            "killer": "Geppetto the Puppet Master",
+            "location": "Carnival of Blood",
+            "girls": ["Asami", "Charlie"]
+        }
+    },
+    "vignette": {
+        "Terror from Above": {
+            "killer": "The Birds",
+            "girls": ["Melanie"]
+        }
+    },
+    "extra": {
+        "Promo": {
+            "girls": ["Paula"]
+            }
+    }
+}
+
+const s2 = {
+    "name": "Series 2",
+    "feature_films": {
+        "Panic at Station 2891": {
+            "killer": "The Organism",
+            "location": "Station 2891",
+            "girls": ["Kate", "Uki"]
+        },
+        "Into the Void": {
+            "killer": "Evomorph",
+            "location": "USS Konrad",
+            "girls": ["Ellen", "Jenette"]
+        },
+        "A Knock at the Door": {
+            "killer": "The Intruders",
+            "location": "Wingard Cottage",
+            "girls": ["Ginny", "Ava"]
+        },
+        "Once Upon a Full Moon": {
+            "killer": "Big Bad Wolf",
+            "location": "Storybook Woods",
+            "girls": ["Gretel", "Red"]
+        },
+        "Madness in the Dark": {
+            "killer": "Ratchet Lady",
+            "location": "Wolfe Asylum",
+            "girls": ["Veronica", "Heather"]
+        }
+    },
+    "vignette": {
+        "Terror from the Grave": {
+            "killer": "Zombies",
+            "girls": ["Patsy"]
+        }
+    },
+    "extra": {
+        "Box of Props": {
+            "girls": ["Agnes", "Layla", "Constance", "Julia"]
+        }
+    }
+}
+
+// create lists
+var Final_Girls = []
+var Locations = []
+var Killers = []
+
+function buildList(o,v,l){
+	for (let i in o){
+  	if (typeof o[i] !== "object") continue;
+    for (let j in o[i]){
+    	if (o[i][j][v] == undefined) continue;
+      if (typeof o[i][j][v] == "object"){
+      	for (let k in o[i][j][v]) {
+        	l.push(o[i][j][v][k])
+        }
+      }else if (typeof o[i][j][v] == "string") {
+      	l.push(o[i][j][v])
+      }
+    }
+  }
+}
+buildList(s1, "girls", Final_Girls)
+buildList(s2, "girls", Final_Girls)
+buildList(s1, "location", Locations)
+buildList(s2, "location", Locations)
+buildList(s1, "killer", Killers)
+buildList(s2, "killer", Killers)
     
 function makeGirls() {
     var ul = document.getElementById('final girls');
