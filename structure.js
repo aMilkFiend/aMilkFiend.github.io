@@ -82,6 +82,55 @@ const s2 = {
         }
     }
 }
+/*
+const s3 = {
+    "name": "Series 3",
+    "feature_films": {
+        "The Killer From Tomorrow": {
+            "killer": "The Hunter",
+            "location": "Sunnydaze Mall",
+            "girls": ["Kat","Tali"]
+        },
+        "Hell to Pay": {
+            "killer": "Razorface",
+            "location": "Hellscape",
+            "girls": ["Kenzie","Christie"]
+        },
+        "The Falconwood Files": {
+            "killer": "Slayer",
+            "location": "Falconwood",
+            "girls": ["Octavia","Janelle"]
+        },
+        "The Marrek Murders": {
+            "killer": "The Tormentor",
+            "location": "Marrek Warehouse",
+            "girls": ["Cassie","Mandy"]
+        },
+        "Don't Make a Sound": {
+            "killer": "The Eyeless",
+            "location": "Utopia",
+            "girls": ["Ronda","Meghan"]
+        }
+    },
+    "vignette": "Terror from Destiny",
+    "extra": {
+        "Promo": {
+            "girls": ["Jamie"]
+            },
+        "North Pole Nightmare": {
+            "killer": "Krampus",
+            "location": "Santa's Village",
+            "girls": ["Mrs. Clause","Cindy"]
+        },
+        "Carolyn's Revenge": {
+            "girls": ["Carolyn"]
+        },
+        "Grandma's Grudge": {
+            "girls": ["Grandma"]
+        }
+    }
+}
+*/
 
 // create lists
 var Final_Girls = []
